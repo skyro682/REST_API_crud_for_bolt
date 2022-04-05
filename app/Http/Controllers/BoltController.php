@@ -33,7 +33,8 @@ class BoltController extends Controller
          
         $bolt = $server->Bolts()->create([
             'name' => $request['name'],
-            'enabled' => ($request['enabled'] ? '1' : '0')
+            'enabled' => ($request['enabled'] ? '1' : '0'),
+            'customer_id' => $request->user()->id
         ]);
 
         return $bolt;

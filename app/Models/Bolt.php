@@ -9,10 +9,15 @@ class Bolt extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'enabled'];
+    protected $fillable = ['name', 'enabled', 'customer_id'];
 
     public function Server()
     {
         return $this->belongsTo(Server::class);
+    }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
     }
 }
