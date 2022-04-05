@@ -18,5 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('server', \App\Http\Controllers\ServerController::class);
-Route::apiResource('bolt', \App\Http\Controllers\BoltController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('server', \App\Http\Controllers\ServerController::class);
+    Route::apiResource('bolt', \App\Http\Controllers\BoltController::class);
+});
